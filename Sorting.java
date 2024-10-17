@@ -3,11 +3,11 @@ public class Sorting {
 
     public static void main(String[] args) {
         
-        int a[] = {7,8,3,1,2};
+        int a[] = {7,8,3,2,1};
              //bubbleSort(a, a.length);
            
-           selectionSort(a, a.length);
-           printArray(a);
+           insertionSort(a, a.length);
+              printArray(a);
           
             
     }
@@ -34,6 +34,7 @@ public class Sorting {
         int smallest = 0;
             for(int i=0;i<n-1;i++)
             {
+                smallest = i;
                 for(int j=i+1;j<n;j++)
                 {
                     if(a[smallest]>a[j])
@@ -45,6 +46,24 @@ public class Sorting {
             }
 
     }
+
+    public static void insertionSort(int a[], int n)
+    {
+        
+            for(int i=1;i<n;i++)
+            {
+               int  current = a[i];
+               int j = i-1;
+                while (j>=0  && current < a[j]) {
+                    
+                    a[j+1] = a[j];
+                    j--;
+                }
+                a[j+1] = current;
+            }
+
+    }
+
 
     public static void swap(int arr[], int i, int j )
     {
